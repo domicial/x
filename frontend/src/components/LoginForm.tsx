@@ -10,9 +10,10 @@ const API_URL = 'http://localhost:8000/token';
 interface LoginFormProps {
     onForgotPassword: () => void;
     onLoginSuccess: () => void; // Callback de sucesso de login para ir ao Dashboard
+    onNavigateToRegister: () => void; // Callback para navegar para registro
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess, onNavigateToRegister }) => {
     
     // Configurações de estado
     const [username, setUsername] = useState('admin'); // Valor inicial para teste
