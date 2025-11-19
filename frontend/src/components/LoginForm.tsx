@@ -43,59 +43,59 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
   };
 
   return (
-    <div className="w-full max-w-md">
+    <div className="w-full max-w-md mx-auto">
       {/* Card Container */}
       <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/20">
         
         {/* Header Gradient */}
-        <div className="h-32 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative overflow-hidden">
+        <div className="h-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative overflow-hidden">
           <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-2 right-10 w-20 h-20 bg-white rounded-full mix-blend-multiply filter blur-xl"></div>
-            <div className="absolute bottom-0 left-20 w-20 h-20 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl animation-float"></div>
+            <div className="absolute -top-8 -right-8 w-32 h-32 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl"></div>
           </div>
-          <div className="relative h-full flex items-end justify-center pb-4">
-            <div className="w-24 h-24 rounded-full border-4 border-white bg-gradient-to-br from-blue-300 to-indigo-300 flex items-center justify-center shadow-lg">
-              <User size={40} className="text-white" />
+          <div className="relative h-full flex items-center justify-center">
+            <div className="w-28 h-28 rounded-full border-4 border-white bg-gradient-to-br from-blue-300 to-indigo-300 flex items-center justify-center shadow-2xl hover:scale-105 transition duration-200">
+              <User size={48} className="text-white" strokeWidth={1.5} />
             </div>
           </div>
         </div>
 
         {/* Form Container */}
-        <div className="px-8 py-8 space-y-6">
+        <div className="px-8 py-10 space-y-7">
           
-          {/* Title */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          {/* Title and Subtitle */}
+          <div className="text-center space-y-3 pb-4">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Bem-vindo de volta
             </h2>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Digite suas credenciais para continuar
             </p>
           </div>
 
           {/* Error Message */}
           {error && (
-            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg animate-pulse">
               <p className="text-red-700 text-sm font-medium">{error}</p>
             </div>
           )}
 
           {/* Form */}
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             
             {/* Username Field */}
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <div className="space-y-2.5">
+              <label className="block text-sm font-semibold text-gray-800">
                 Usuário ou E-mail
               </label>
-              <div className="relative">
-                <User className="absolute top-3.5 left-4 text-indigo-400" size={18} />
+              <div className="relative group">
+                <User className="absolute top-4 left-4 text-indigo-400 group-focus-within:text-indigo-600 transition" size={19} />
                 <input
                   id="username"
                   name="username"
                   type="text"
                   required
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50/50 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 transition duration-200"
+                  className="w-full pl-13 pr-5 py-3.5 border-2 border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-450 focus:border-indigo-500 focus:bg-indigo-50/30 focus:ring-2 focus:ring-indigo-200 transition duration-200 font-medium"
                   placeholder="admin"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -104,18 +104,18 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
             </div>
 
             {/* Password Field */}
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <div className="space-y-2.5">
+              <label className="block text-sm font-semibold text-gray-800">
                 Senha
               </label>
-              <div className="relative">
-                <Lock className="absolute top-3.5 left-4 text-indigo-400" size={18} />
+              <div className="relative group">
+                <Lock className="absolute top-4 left-4 text-indigo-400 group-focus-within:text-indigo-600 transition" size={19} />
                 <input
                   id="password"
                   name="password"
                   type="password"
                   required
-                  className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50/50 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 transition duration-200"
+                  className="w-full pl-13 pr-5 py-3.5 border-2 border-gray-200 rounded-lg bg-white text-gray-900 placeholder-gray-450 focus:border-indigo-500 focus:bg-indigo-50/30 focus:ring-2 focus:ring-indigo-200 transition duration-200 font-medium"
                   placeholder="Sua senha"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -124,13 +124,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
             </div>
 
             {/* Forgot Password Link */}
-            <div className="pt-2">
+            <div className="flex justify-end pt-1">
               <button
                 type="button"
                 onClick={(e) => { e.preventDefault(); onForgotPassword(); }}
-                className="text-sm font-medium text-indigo-600 hover:text-indigo-700 hover:underline flex items-center gap-1 transition"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50/50 px-3 py-1.5 rounded-md transition duration-200"
               >
-                <RefreshCcw size={14} />
+                <RefreshCcw size={16} strokeWidth={2} />
                 Esqueci minha senha
               </button>
             </div>
@@ -139,28 +139,28 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-6 py-3 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-purple-600 focus:outline-none focus:ring-4 focus:ring-indigo-200 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full mt-8 py-3.5 px-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold rounded-lg hover:from-indigo-600 hover:to-purple-600 focus:outline-none focus:ring-4 focus:ring-indigo-200 transition duration-200 disabled:opacity-60 disabled:cursor-not-allowed shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2.5 text-base"
             >
-              <LogIn size={18} />
+              <LogIn size={20} strokeWidth={2} />
               {loading ? 'Entrando...' : 'Entrar'}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="relative py-4">
+          <div className="relative py-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200"></div>
+              <div className="w-full border-t-2 border-gray-200"></div>
             </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-3 bg-white/95 text-gray-500">Novo por aqui?</span>
+            <div className="relative flex justify-center">
+              <span className="px-4 bg-white text-gray-500 text-sm font-medium">Novo por aqui?</span>
             </div>
           </div>
 
-          {/* Register Link */}
+          {/* Register Button */}
           <button
             type="button"
             onClick={onNavigateToRegister}
-            className="w-full py-3 px-4 border-2 border-indigo-200 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-50 transition duration-200"
+            className="w-full py-3.5 px-4 border-2 border-indigo-200 text-indigo-600 font-bold rounded-lg hover:bg-indigo-50 hover:border-indigo-300 transition duration-200 text-base"
           >
             Criar uma conta
           </button>
@@ -168,7 +168,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
       </div>
 
       {/* Footer Text */}
-      <p className="text-center text-sm text-white/80 mt-8">
+      <p className="text-center text-sm text-white/85 mt-10 font-medium">
         © 2024 X Project. Todos os direitos reservados.
       </p>
     </div>
