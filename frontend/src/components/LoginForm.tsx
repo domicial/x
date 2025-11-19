@@ -116,13 +116,24 @@ const LoginForm: React.FC<LoginFormProps> = ({ onForgotPassword, onLoginSuccess,
                 <button
                     type="submit"
                     disabled={loading}
-                    className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white transition duration-200 
+                    className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-sm font-medium text-white transition duration-200
                         ${loading ? 'bg-indigo-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'}`
                     }
                 >
                     {loading ? 'Entrando...' : 'Entrar no X'}
                 </button>
             </form>
+
+            {/* Link para Registro */}
+            <p className="text-sm text-center text-gray-600">
+                Não possui conta?{' '}
+                <button
+                    onClick={onNavigateToRegister}
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                >
+                    Criar uma conta aqui
+                </button>
+            </p>
         </div>
     );
 };
